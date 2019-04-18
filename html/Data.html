@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+
+<body style = "background-color: #b3f8ff">
+<!--<h1 style="color: #65271c; text-align: center; font-family: Arial">-->
+<!--Welcome to Asian Market!-->
+<!--</h1>-->
+<div id="main">
+    <div id="header">
+        <div id="logo">
+            <div id="logo_text">
+                <h1><a href="index.html">Home Sweet Home</a></h1>
+            </div>
+        </div>
+        <div id="menubar">
+            <ul id="menu">
+                <li><a href="index.html">Home</a> </li>
+                <li><a href="About.html">About</a> </li>
+                <li><a href="Services.html">Services</a> </li>
+                <li><a href="News.html">News</a> </li>
+                <li><a href="Contact.php">Contacts</a> </li>
+                <li><a href="Secure.html">Secure</a> </li>
+                <li class="selected"><a href="Data.html">User</a> </li>
+                <li><a href="Database.php">Database</a> </li>
+            </ul>
+        </div>
+    </div>
+    <div id="site_content">
+        <div class="sidebar">
+            <!--left for future-->
+            <h3>This area is under construction...</h3>
+        </div>
+        <div id="content">
+            <h1>Search or add to database</h1>
+            <form method = "post" action = "Database.php" role="form">
+            <!--<p>Select a field to display:-->
+            <!--<select name = "select">-->
+                <!--<option selected = "selected">*</option>-->
+                <!--<option>ID</option>-->
+                <!--<option>Title</option>-->
+                <!--<option>Category</option>-->
+                <!--<option>ISBN</option>-->
+            <!--</select></p>-->
+
+            <!--<input type="submit" value ="Send Query"-->
+                   <!--style="background-color: #9e000a;-->
+                   <!--color:#F0EFE2; font-weight: bold";/>-->
+
+                <table border = "0" cellspacing = "0"
+                       style = "height: 90px; width: 223px; font-size: 10pt;" cellpadding = "10">
+
+                    <tr>
+                        <td colspan="3">
+                            <strong>First Name:</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input size="40" name="firstname" type="text"
+                                   style="height: 22px; width: 215px;" />
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <strong>Last Name:</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input size="40" name="lastname" type="text"
+                                   style="height: 22px; width: 215px;" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <strong>Email:</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input size="40" name="email" type="email"
+                                   style="height: 22px; width: 215px;" />
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <strong>Address:</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input size="40" name="address" type="text"
+                                   style="height: 22px; width: 215px;" />
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <strong>Homephone:</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input size="40" name="homephone" type="number"
+                                   style="height: 22px; width: 215px;" />
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <strong>Cellphone:</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input size="40" name="cellphone" type="number"
+                                   style="height: 22px; width: 215px;" />
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="1">
+                            <button type="submit" name="submit"
+                                   value="search"
+                                   style="height: 23px; width: 47px;">Search</button>
+                        </td>
+                        <td colspan="3">
+                            <button type="submit" name="submit"
+                                   value="submit"
+                                   style="height: 23px;">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

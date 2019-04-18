@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Home Page
+    </title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+<body style = "background-color: #b3f8ff">
+<!--<h1 style="color: #65271c; text-align: center; font-family: Arial">-->
+<!--Welcome to Asian Market!-->
+<!--</h1>-->
+<div id="main">
+    <div id="header">
+        <div id="logo">
+            <div id="logo_text">
+                <h1><a href="index.html">Home Sweet Home</a></h1>
+            </div>
+        </div>
+        <div id="menubar">
+            <ul id="menu">
+                <li><a href="index.html">Home</a> </li>
+                <li><a href="About.html">About</a> </li>
+                <li><a href="Services.html">Services</a> </li>
+                <li><a href="News.html">News</a> </li>
+                <li><a href="Contact.php">Contacts</a> </li>
+                <li class="selected"><a href="Secure.html">Secure</a> </li>
+                <li><a href="Data.html">User</a> </li>
+                <li><a href="Database.php">Data</a> </li>
+                <!--<li><a href="Secure.php"></a> </li>-->
+            </ul>
+        </div>
+    </div>
+    <div id="site_content">
+        <div class="sidebar">
+            <!--left for future-->
+            <h3>This area is under construction...</h3>
+        </div>
+        <div id="content">
+            <h1>Sign in</h1>
+            <p>Please use Administrator account to log in</p>
+            <p style="color: #9e001c">Note that password will be sent as plain text<b></b></p>
+
+            <!-- post form data to Secure.php -->
+            <form action = "Secure.php" method = "post">
+                <br />
+                <table border = "0" cellspacing = "0"
+                       style = "height: 90px; width: 123px; font-size: 10pt;" cellpadding = "10">
+                    <tr>
+                        <td colspan="3">
+                            <strong>Username:</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <input size="40" name="USERNAME"
+                                   style="height: 22px; width: 115px;" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <strong>Password:</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <input size="40" name="PASSWORD"
+                                   style="height: 22px; width: 115px;"
+                                   type="password" />
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="1">
+                            <input type="submit" name="Enter"
+                                   value="Enter" style="height: 23px; width: 47px;" />
+                        </td>
+                        <td colspan="2">
+                            <input type="submit" name="NewUser"
+                                   value="New User"
+                                   style="height: 23px;"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
