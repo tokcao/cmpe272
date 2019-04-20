@@ -1,3 +1,32 @@
+<?php
+$url = (string)$_SERVER['REQUEST_URL'];
+
+if(!isset($_COOKIE['history'])){
+    $history[] = $url;
+}
+else{
+    $history = explode('|',$_COOKIE['history']);
+
+    if(in_array($url, $history)){
+        $pos = array_search($url, $history);
+        if($pos == 0){
+            $new_history = $array_slice($history, $pos+1);
+        }
+        else{
+            $new_history = array_merge(array_slice($history, 0 ,$pos), array_slice($history, $pos+1));
+        }
+        $history = $new_history;
+    }
+    array_unshift($history, $url);
+    if(count($history) > 5){
+        array_pop($history);
+    }
+}
+
+$expire = time() + 60 * 60 * 24 * 30;
+setcookie('history', implode('|', $history), $expire);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +80,7 @@
                 <li><a href="onlinepayment.html">Online payment!</a></li>
                 <li>Not enough? Tell us what else service you like!</li>
                 <br>
-                <li><a href="lastfivecookies.html">Last five visited services.</a></li>
+                <li><a href="lastfivecookies.php">Last five visited services.</a></li>
             </ul>
         </div>
     </div>

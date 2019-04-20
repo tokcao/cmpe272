@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<?php
+<!-- <?php
 $cookieName = "user";
 $cookieValue = $_SERVER['HTTP_REFERER'];
 setcookie($cookieName, $cookieValue); // 86400 = 1 day
-?>
+?> -->
 
 <html>
 
@@ -45,21 +45,20 @@ setcookie($cookieName, $cookieValue); // 86400 = 1 day
             </div>
             <div id="content">
                 <h1>Last Five Visited Services</h1>
+                <ul>
                 <?php
-                if(isset($_COOKIE[$cookieName])){
-                    $coon = mysqli_connect("127.0.0.1","tokcao","12345","userInfo");
-                    $sql = mysqli_query($conn,"SELECT name FROM visited WHERE time > 0 ORDER BY time DESC");
-
-                    $counter = 0;
-
-                    while(($row = mysqli_fetch_array($sql))&&$counter<5){
-                        echo $row["name"]."<br>";
-                        $counter++;
-                    }
-
-                    mysqli_close($conn);
+                $history = explode('|', $_COOKIE['history']);
+                foreach($history as $value){
+                    $page = ltrim($value, "/");
+                    $name0 = rtrim($page, ".html");
+                    $i = stripos($name0, "_");
+                    $name1 = substri($name0, ($i + 1));
+                    $name2 = ucwords(str_replace("_", " ", $name1));?>
+                    <li>
+                        <?php
+                        echo "<a href=\"$page\"> $name2 </a>";?></li>
                 }
-                ?>
+                </ul>
             </div>
         </div>
     </div>
