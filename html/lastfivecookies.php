@@ -57,7 +57,8 @@
                         ?>
                         <li> <?php echo "<a href=\"$p_page\"> $p_name_2 </a>";
                         echo "<br>";
-                        echo $his; ?></li>
+                        echo $his;
+                        print_r ($his); ?></li>
                     <?php };
                 ?>
                 </ul>

@@ -20,6 +20,8 @@ if (!isset($_COOKIE['history'])) {           // if no product history
     }
  }
 
+ echo $history;
+
 $expire=time()+60*60*24*30;
 setcookie('history',implode('|', $his),$expire);
 
