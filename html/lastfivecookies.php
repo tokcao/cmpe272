@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!-- <?php
-        $cookieName = "user";
-        $cookieValue = $_SERVER['HTTP_REFERER'];
-        setcookie($cookieName, $cookieValue); // 86400 = 1 day
-        ?> -->
 
 <html>
 
@@ -51,14 +46,14 @@
                     foreach ($his as $v) { ?>
                         <?php $p_page = ltrim($v, "/");
                         $p_name_0 = rtrim($p_page, ".html");
-                        $i = stripos($p_name_0, "_");
-                        $p_name_1 = substr($p_name_0, ($i + 1));
-                        $p_name_2 = ucwords(str_replace("_", " ", $p_name_1));
+                        // $i = stripos($p_name_0, "_");
+                        // $p_name_1 = substr($p_name_0, ($i + 1));
+                        // $p_name_2 = ucwords(str_replace("_", " ", $p_name_1));
                         ?>
-                        <li> <?php echo "<a href=\"$p_page\"> $p_name_2 </a>";
-                        echo "<br>";
-                        echo $his;
-                        print_r ($his); ?></li>
+                        <li> <?php echo "<a href=\"$p_page\"> $p_name_0 </a>";
+                        // echo "<br>";
+                        // echo $his;
+                        // print_r ($his); ?></li>
                     <?php };
                 ?>
                 </ul>
