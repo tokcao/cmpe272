@@ -56,13 +56,12 @@ setcookie($cookieName, $cookieValue); // 86400 = 1 day
                     $name2 = ucwords(str_replace("_", " ", $name1));?>
                     <li>
                         <?php
-                        echo "<a href=\"$page\"> $name2 </a>";?></li>
-                }
+                        echo "<a href=\"$page\"> $name2 </a>"; ?></li>
+                <?php }; ?>
                 </ul>
             </div>
         </div>
     </div>
 
 </body>
-
 </html>
