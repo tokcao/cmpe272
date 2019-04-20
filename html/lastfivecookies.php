@@ -57,6 +57,7 @@ setcookie($cookieName, $cookieValue); // 86400 = 1 day
                     <li>
                         <?php
                         echo "<a href=\"$page\"> $name2 </a>"; ?></li>
+                        <?php echo $history; ?>
                 <?php }; ?>
                 </ul>
             </div>
