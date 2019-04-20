@@ -1,5 +1,5 @@
 <?php
-$url = (string)$_SERVER['REQUEST_URL'];
+$url = (string)$_SERVER['REQUEST_URI'];
 
 if(!isset($_COOKIE['history'])){
     $history[] = $url;

@@ -52,7 +52,7 @@ setcookie($cookieName, $cookieValue); // 86400 = 1 day
                     $page = ltrim($value, "/");
                     $name0 = rtrim($page, ".html");
                     $i = stripos($name0, "_");
-                    $name1 = substri($name0, ($i + 1));
+                    $name1 = substr($name0, ($i + 1));
                     $name2 = ucwords(str_replace("_", " ", $name1));?>
                     <li>
                         <?php
