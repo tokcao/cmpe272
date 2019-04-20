@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- <?php
-$cookieName = "user";
-$cookieValue = $_SERVER['HTTP_REFERER'];
-setcookie($cookieName, $cookieValue); // 86400 = 1 day
-?> -->
+        $cookieName = "user";
+        $cookieValue = $_SERVER['HTTP_REFERER'];
+        setcookie($cookieName, $cookieValue); // 86400 = 1 day
+        ?> -->
 
 <html>
 
@@ -46,23 +46,23 @@ setcookie($cookieName, $cookieValue); // 86400 = 1 day
             <div id="content">
                 <h1>Last Five Visited Services</h1>
                 <ul>
-                <?php
-                $history = explode('|', $_COOKIE['history']);
-                foreach($history as $value){
-                    $page = ltrim($value, "/");
-                    $name0 = rtrim($page, ".html");
-                    $i = stripos($name0, "_");
-                    $name1 = substr($name0, ($i + 1));
-                    $name2 = ucwords(str_replace("_", " ", $name1));?>
-                    <li>
-                        <?php
-                        echo "<a href=\"$page\"> $name2 </a>"; ?></li>
-                        <?php echo $history; ?>
-                <?php }; ?>
+                    <?php
+                    $his = explode('|', $_COOKIE['history']);
+                    foreach ($his as $v) { ?>
+                        <?php $p_page = ltrim($v, "/");
+                        $p_name_0 = rtrim($p_page, ".html");
+                        $i = stripos($p_name_0, "_");
+                        $p_name_1 = substr($p_name_0, ($i + 1));
+                        $p_name_2 = ucwords(str_replace("_", " ", $p_name_1));
+                        ?>
+                        <li> <?php echo "<a href=\"$p_page\"> $p_name_2 </a>"; ?></li>
+                    <?php };
+                ?>
                 </ul>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>

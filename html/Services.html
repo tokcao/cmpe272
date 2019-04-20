@@ -1,36 +1,33 @@
 <?php
-$url = (string)$_SERVER['REQUEST_URI'];
+$uri = (string)$_SERVER['REQUEST_URI'];
 
-if(!isset($_COOKIE['history'])){
-    $history[] = $url;
-}
-else{
-    $history = explode('|',$_COOKIE['history']);
-
-    if(in_array($url, $history)){
-        $pos = array_search($url, $history);
-        if($pos == 0){
-            $new_history = $array_slice($history, $pos+1);
+if (!isset($_COOKIE['history'])) {           // if no product history
+    $his[] = $uri;                           // just store product uri
+ } else {                                    // if product history not empty
+    $his = explode('|',$_COOKIE['history']);  // explode
+    if (in_array($uri, $his)){
+        $pos = array_search($uri, $his);
+        if ($pos == 0){
+            $new_his = array_slice($his, $pos+1);
+        } else {
+            $new_his = array_merge(array_slice($his, 0, $pos), array_slice($his, $pos+1));
         }
-        else{
-            $new_history = array_merge(array_slice($history, 0 ,$pos), array_slice($history, $pos+1));
-        }
-        $history = $new_history;
+        $his = $new_his;
     }
-    array_unshift($history, $url);
-    if(count($history) > 5){
-        array_pop($history);
+    array_unshift($his, $uri);
+    if (count($his) > 5) {             // store 10 url
+        array_pop($his);
     }
-}
+ }
 
-echo $history;
+$expire=time()+60*60*24*30;
+setcookie('history',implode('|', $his),$expire);
 
-$expire = time() + 60 * 60 * 24 * 30;
-setcookie('history', implode('|', $history), $expire);
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>
         Services
@@ -38,56 +35,57 @@ setcookie('history', implode('|', $history), $expire);
     <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
 </head>
 
-<body style = "background-color: #b3f8ff">
-<!--<h1 style="color: #65271c; text-align: center; font-family: Arial">-->
-<!--Welcome to Asian Market!-->
-<!--</h1>-->
-<div id="main">
-    <div id="header">
-        <div id="logo">
-            <div id="logo_text">
-                <h1><a href="index.html">Home Sweet Home</a></h1>
+<body style="background-color: #b3f8ff">
+    <!--<h1 style="color: #65271c; text-align: center; font-family: Arial">-->
+    <!--Welcome to Asian Market!-->
+    <!--</h1>-->
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h1><a href="index.html">Home Sweet Home</a></h1>
+                </div>
+            </div>
+            <div id="menubar">
+                <ul id="menu">
+                    <li><a href="index.html">Home</a> </li>
+                    <li><a href="About.html">About</a> </li>
+                    <li class="selected"><a href="Services.html">Services</a> </li>
+                    <li><a href="News.html">News</a> </li>
+                    <li><a href="Contact.php">Contacts</a> </li>
+                    <li><a href="Secure.html">Secure</a> </li>
+                    <li><a href="Data.html">User</a> </li>
+                    <li><a href="Database.php">Data</a> </li>
+                </ul>
             </div>
         </div>
-        <div id="menubar">
-            <ul id="menu">
-                <li><a href="index.html">Home</a> </li>
-                <li><a href="About.html">About</a> </li>
-                <li class="selected"><a href="Services.html">Services</a> </li>
-                <li><a href="News.html">News</a> </li>
-                <li><a href="Contact.php">Contacts</a> </li>
-                <li><a href="Secure.html">Secure</a> </li>
-                <li><a href="Data.html">User</a> </li>
-                <li><a href="Database.php">Data</a> </li>
-            </ul>
+        <div id="site_content">
+            <div class="sidebar">
+                <!--left for future-->
+                <h3>This area is under construction...</h3>
+            </div>
+            <div id="content">
+                <h1>Browse our cool services!</h1>
+                <ul>
+                    <li><a href="upload.html">Upload your item for sell!</a></li>
+                    <li><a href="setbid.html">Set a bid for your item!</a></li>
+                    <li><a href="exchange.html">Add an Exchange Option of your item!</a></li>
+                    <li><a href="addfriend.html">Add friends!</a></li>
+                    <li><a href="message.html">Messages!</a></li>
+                    <li><a href="invisiblemode.html">Invisible mode!</a></li>
+                    <li><a href="post.html">Post!</a></li>
+                    <li><a href="comment.html">Comment!</a></li>
+                    <li><a href="share.html">Share!</a></li>
+                    <li><a href="onlinepayment.html">Online payment!</a></li>
+                    <li>Not enough? Tell us what else service you like!</li>
+                    <br>
+                    <li><a href="lastfivecookies.php">Last five visited services.</a></li>
+                    <li><?php echo $history; ?></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div id="site_content">
-        <div class="sidebar">
-            <!--left for future-->
-            <h3>This area is under construction...</h3>
-        </div>
-        <div id="content">
-            <h1>Browse our cool services!</h1>
-            <ul>
-                <li><a href="upload.html">Upload your item for sell!</a></li>
-                <li><a href="setbid.html">Set a bid for your item!</a></li>
-                <li><a href="exchange.html">Add an Exchange Option of your item!</a></li>
-                <li><a href="addfriend.html">Add friends!</a></li>
-                <li><a href="message.html">Messages!</a></li>
-                <li><a href="invisiblemode.html">Invisible mode!</a></li>
-                <li><a href="post.html">Post!</a></li>
-                <li><a href="comment.html">Comment!</a></li>
-                <li><a href="share.html">Share!</a></li>
-                <li><a href="onlinepayment.html">Online payment!</a></li>
-                <li>Not enough? Tell us what else service you like!</li>
-                <br>
-                <li><a href="lastfivecookies.php">Last five visited services.</a></li>
-                <li><?php echo $history; ?></li>
-            </ul>
-        </div>
-    </div>
-</div>
 
 </body>
+
 </html>
