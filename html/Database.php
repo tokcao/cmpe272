@@ -94,7 +94,7 @@
                         /** Build table to display result */
 
                         echo "<table border=\"0\" cellspacing=\"0\"
-                            style=\"height: 90px; width: 223px; font-size: 10pt;\" cellpadding=\"10\">
+                            style=\"height: auto; width: auto; font-size: 10pt;\" cellpadding=\"10\">
                             <thead>
                             <tr>
                                 <th>First Name</th>
