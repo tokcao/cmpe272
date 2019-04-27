@@ -106,7 +106,7 @@ ol li {
 
 #header {
     background: transparent;
-    height: 202px;
+    height: 234px;
 }
 
 #logo {
@@ -148,7 +148,7 @@ ol li {
 
 #menubar {
     width: 898px;
-    height: 52px;
+    height: 84px;
     padding: 0;
     background: transparent url(transparent.png) repeat;
 }
