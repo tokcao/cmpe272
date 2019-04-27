@@ -24,7 +24,7 @@
                 <li><a href="News.html">News</a></li>
                 <li><a href="Contact.php">Contacts</a></li>
                 <li><a href="Secure.html">Secure</a></li>
-                <li><a href="Data.html">User</a></li>
+                <li><a href="User.html">User</a></li>
                 <li><a href="Database.php">Data</a></li>
             </ul>
         </div>
@@ -39,11 +39,6 @@
             <?php
 
             extract($_POST);
-
-//            define('DBHOST', 'localhost');
-//            define('DBUSER', 'tokcao');
-//            define('DBPASS', 'some_pass');
-//            define('DBNAME', 'userInfo');
 
             /** Build SELECT query */
             //                $query = "SELECT" . $select . " From Books";
@@ -146,17 +141,7 @@
 
             ?>
             </table>
-
         </div>
-
-        <!--        <br>Your search yielded-->
-        <!--        <strong>-->
-        <!--            --><?php
-        //            echo "$counter";
-        //            ?>
-        <!--            results.<br><br>-->
-        <!--        </strong>-->
-       
     </div>
 </div>
 </body>
