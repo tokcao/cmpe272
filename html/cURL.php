@@ -37,82 +37,8 @@
             <h1>This area is under construction...</h1>
         </div>
         <div id="content">
-            <h1>User list of Tianyu Cao's Company</h1>
+            <h1>CURL</h1>
             <?php
-
-//            extract($_POST);
-//
-//            /** Build SELECT query */
-//            //                $query = "SELECT" . $select . " From Books";
-//
-//            $servername = "localhost";
-//            //            $servername = "127.0.0.1";
-//            $username = "tokcao";
-//            $password = "12345";
-//            $dbname = "userInfo";
-//
-//            //            $conn = new mysqli($servername, $username, $password, $dbname);
-//            $conn = mysqli_connect("127.0.0.1", "tokcao", "12345", "userInfo");
-//
-//            /** Connect to MySQL */
-//            if (!$conn) {
-//                echo "Error: Unable to connect to MySQL." . PHP_EOL;
-//                echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-//                echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-//                die("Could not connect to database.");
-//            } else {
-//
-//                global $conn;
-//                $sql = "SELECT firstname, lastname, email, address, homephone, cellphone
-//                            FROM Users WHERE
-//                            firstname like '%" . $firstname . "%' and
-//                            lastname like '%" . $lastname . "%' and
-//                            email like '%" . $email . "%' and
-//                            address like '%" . $address . "%' and
-//                            homephone like '%" . $homephone . "%' and
-//                            cellphone like '%" . $cellphone . "%'";
-//
-//                $sql2 = "SHOW TABLES";
-//
-//                if ($result = mysqli_query($conn, $sql)) {
-//                    /** Build table to display result */
-//
-//                    echo "<table border=\"0\" cellspacing=\"0\"
-//                            style=\"height: 90px; width: 223px; font-size: 10pt;\" cellpadding=\"10\">
-//                            <thead>
-//                            <tr>
-//                                <th>First Name</th>
-//                                <th>Last Name</th>
-//                                <th>Email</th>
-//                                <th>Address</th>
-//                                <th>Homephone</th>
-//                                <th>Cellphone</th>
-//                            </tr>
-//                            </thead>";
-//
-//                    /** Fetch each record in result set */
-//                    for ($counter = 0; $row = mysqli_fetch_row($result); $counter++) {
-//
-//                        echo "<tr>";
-//
-//                        foreach ($row as $key => $value) {
-//                            echo "<td>$value</td>";
-//                        }
-//
-//                        echo "<tr>";
-//                    }
-//                } else {
-//                    echo "Could not execute query!<br>";
-//                    die(mysqli_error($conn));
-//                }
-//
-//            }
-//
-//            if ($conn->connect_error) {
-//                die("Connection failed: " . $conn->connect_error);
-//            }
-
-//            mysqli_close($conn);
 
             $curl_handle = curl_init();
             curl_setopt($curl_handle, CURLOPT_URL, "http://www.tokcao.com/ListOfUsers.php");
@@ -128,7 +54,6 @@
             }
 
             ?>
-            </table>
 
         </div>
     </div>
