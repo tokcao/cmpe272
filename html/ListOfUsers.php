@@ -26,8 +26,8 @@
                 <li><a href="Secure.html">Secure</a></li>
                 <li><a href="User.html">User</a></li>
                 <li><a href="Database.php">Data</a></li>
-                <li><a href="ListOfUsers.php">UserList</a> </li>
                 <li><a href="cURL.php">cURL</a></li>
+                <li class="selected"><a href="ListOfUsers.php">UserList</a> </li>
             </ul>
         </div>
     </div>
@@ -37,7 +37,7 @@
             <h1>This area is under construction...</h1>
         </div>
         <div id="content">
-            <h1>Search Results</h1>
+            <h1>User list of Tianyu Cao's Company</h1>
             <?php
 
             extract($_POST);
@@ -46,13 +46,13 @@
             //                $query = "SELECT" . $select . " From Books";
 
             $servername = "localhost";
-//            $servername = "127.0.0.1";
+            //            $servername = "127.0.0.1";
             $username = "tokcao";
             $password = "12345";
             $dbname = "userInfo";
 
-//            $conn = new mysqli($servername, $username, $password, $dbname);
-            $conn = mysqli_connect("127.0.0.1","tokcao","12345","userInfo");
+            //            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = mysqli_connect("127.0.0.1", "tokcao", "12345", "userInfo");
 
             /** Connect to MySQL */
             if (!$conn) {
@@ -61,25 +61,7 @@
                 echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
                 die("Could not connect to database.");
             } else {
-                if ($submit == "search") {
-                    searchUser($firstname, $lastname, $email, $address, $homephone, $cellphone);
-                } else if ($submit == "submit") {
-                    createUser($firstname, $lastname, $email, $address, $homephone, $cellphone);
-                } else {
-                    echo "You have submitted nothing.";
-                }
-            }
-//            $conn = mysqli_connect(DBHOST,DBUSER,DBPASS);
-//            $dbcon = mysqli_select_db($conn,DBNAME);
 
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-
-
-            function searchUser($firstname, $lastname, $email, $address, $homephone, $cellphone)
-            {
                 global $conn;
                 $sql = "SELECT firstname, lastname, email, address, homephone, cellphone
                             FROM Users WHERE  
@@ -90,13 +72,13 @@
                             homephone like '%" . $homephone . "%' and
                             cellphone like '%" . $cellphone . "%'";
 
-		$sql2 = "SHOW TABLES";
+                $sql2 = "SHOW TABLES";
 
-		if ($result = mysqli_query($conn, $sql)) {
-                        /** Build table to display result */
+                if ($result = mysqli_query($conn, $sql)) {
+                    /** Build table to display result */
 
-                        echo "<table border=\"0\" cellspacing=\"0\"
-                            style=\"height: auto; width: auto; font-size: 10pt;\" cellpadding=\"10\">
+                    echo "<table border=\"0\" cellspacing=\"0\"
+                            style=\"height: 90px; width: 223px; font-size: 10pt;\" cellpadding=\"10\">
                             <thead>
                             <tr>
                                 <th>First Name</th>
@@ -107,11 +89,11 @@
                                 <th>Cellphone</th>
                             </tr>
                             </thead>";
- 
+
                     /** Fetch each record in result set */
                     for ($counter = 0; $row = mysqli_fetch_row($result); $counter++) {
 
-                       echo "<tr>";
+                        echo "<tr>";
 
                         foreach ($row as $key => $value) {
                             echo "<td>$value</td>";
@@ -123,26 +105,30 @@
                     echo "Could not execute query!<br>";
                     die(mysqli_error($conn));
                 }
+
             }
 
-            function createUser($firstname, $lastname, $email, $address, $homephone, $cellphone)
-            {
-                global $conn;
-                $sql = "INSERT INTO Users(firstname,lastname,email,address,homephone,cellphone) VALUES
-                            ('$firstname','$lastname','$email','$address','$homephone','$cellphone')";
-                if ($conn->query($sql) === TRUE) {
-                    echo "<strong>You have been added to database.</strong>";
-                } else {
-                    echo "<strong>Failed to add to database.</strong><br>";
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
             }
-
 
             mysqli_close($conn);
 
+            $curl_handle = curl_init();
+            curl_setopt($curl_handle, CURLOPT_URL, "http://cmpe272.jinxiaoting.com/Customers.html");
+            curl_setopt($curl_handle, CURLOPT_HEADER, 0);
+            curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+            $contents = curl_exec($curl_handle);
+            curl_setopt($curl_handle, CURLOPT_URL, "http://cmpe272.jinxiaoting.com/Customers.html");
+            $contents = $contents . "," . curl_exec($curl_handle);
+            echo "<br/>";
+            curl_close($curl_handle);
+            foreach (explode(",", $contents) as $content) {
+                echo $content . "<br/>";
+            }
             ?>
             </table>
+
         </div>
     </div>
 </div>
