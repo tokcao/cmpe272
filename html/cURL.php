@@ -32,10 +32,10 @@
         </div>
     </div>
     <div id="site_content">
-        <div class="sidebar">
-            <!--left for future-->
-            <h1>This area is under construction...</h1>
-        </div>
+<!--        <div class="sidebar">-->
+<!--            <!--left for future-->-->
+<!--            <h1>This area is under construction...</h1>-->
+<!--        </div>-->
         <div id="content">
             <h1>CURL</h1>
             <?php
